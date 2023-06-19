@@ -21,7 +21,12 @@ def grottext(conf,data,jsonmsg) :
         #print(dir(conf))
         #print(conf.extvar)
 
-    url = "http://" + conf.extvar["ip"] + ":" + str(conf.extvar["port"]) 
+    url = "http://" + conf.extvar["ip"] + ":" + str(conf.extvar["port"])
+
+    fullurl = conf.extvar["url"]
+
+    if fullurl:
+        url = fullurl
     
     try: 
         r = requests.post(url, json = jsonmsg)
